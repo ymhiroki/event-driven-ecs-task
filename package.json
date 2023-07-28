@@ -43,6 +43,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@aws-prototyping-sdk/pdk-nag": "^0.19.52",
     "aws-cdk-lib": "^2.1.0",
     "constructs": "^10.0.5"
   },
