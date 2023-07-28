@@ -26,11 +26,14 @@ export class EventDrivenEcsTaskStack extends cdk.Stack {
     });
     taskDefinition.addContainer('AppContainer', {
       image: ecs.ContainerImage.fromAsset('./app'),
+      logging: ecs.LogDrivers.awsLogs({
+        streamPrefix: 'event-driven-ecs-task-demo',
+      }),
     });
 
     // 一定時間毎にタスクを起動するイベントルール
     const rule = new events.Rule(this, 'Rule', {
-      schedule: events.Schedule.expression('rate(1 minute)'),
+      schedule: events.Schedule.expression('rate(5 minutes)'),
     });
 
     // イベントにより起動されるタスクを指定
