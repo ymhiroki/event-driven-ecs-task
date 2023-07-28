@@ -53,6 +53,10 @@ export class EventDrivenEcsTaskStack extends cdk.Stack {
       logging: ecs.LogDrivers.awsLogs({
         streamPrefix: 'event-driven-ecs-task-demo',
       }),
+      environment: {
+        BUCKET_NAME: bucket.bucketName,
+        REGION: cdk.Stack.of(this).region,
+      }
     });
 
     // 一定時間毎にタスクを起動するイベントルール
