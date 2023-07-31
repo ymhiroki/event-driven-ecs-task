@@ -61,7 +61,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	for i := 0; i < 100; i++ {
+	// 適当な重い処理
+	for i := 0; i < 10; i++ {
 		println(i)
 		time.Sleep(time.Second * 5)
 	}

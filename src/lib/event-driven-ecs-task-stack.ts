@@ -54,14 +54,15 @@ export class EventDrivenEcsTaskStack extends cdk.Stack {
         streamPrefix: 'event-driven-ecs-task-demo',
       }),
       environment: {
+        // コンテナで参照する環境変数
         BUCKET_NAME: bucket.bucketName,
         REGION: cdk.Stack.of(this).region,
-      }
+      },
     });
 
     // 一定時間毎にタスクを起動するイベントルール
     const rule = new events.Rule(this, 'Rule', {
-      schedule: events.Schedule.expression('rate(5 minutes)'),
+      schedule: events.Schedule.expression('rate(1 minute)'),
     });
 
     // イベントにより起動されるタスクを指定
