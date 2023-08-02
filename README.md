@@ -63,12 +63,12 @@ npx projen destroy
 
 ## File Structure
 
-* /app: Fargate にデプロイされるコンテナで動作するアプリおよび Dockerfile
-* /doc: ドキュメント用フォルダ
-* /src: リソースデプロイ用の CDK Application
-* /test: CDK のテスト用フォル
+* `/app`: Fargate にデプロイされるコンテナで動作するアプリおよび Dockerfile
+* `/doc`: ドキュメント用フォルダ
+* `/src`: リソースデプロイ用の CDK Application
+* `/test`: CDK のテスト用フォル
 
-## build a docker image
+## Build a docker image
 
 コンテナ上で実行されるイメージを手元でビルドしたい場合、次のコマンドを用いてください。
 
