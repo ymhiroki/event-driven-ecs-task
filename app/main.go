@@ -61,12 +61,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	// 適当な重い処理
+	// 適当な重い処理 e.g. バッチ集計処理
 	for i := 0; i < 10; i++ {
 		println(i)
 		time.Sleep(time.Second * 5)
 	}
 
+	// 集計結果を S3 にアップロードするサンプル
 	err = uploadFileToS3WithTimeStamp(region, bucketName, "end.txt")
 	if err != nil {
 		println("uploadFileToS3WithTimeStamp (end):", err.Error())

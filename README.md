@@ -8,13 +8,12 @@ EventBridge で ECS Task を定期実行し、S3 Bucket に処理結果を保存
 
 ### Prerequisites
 
-以下の依存関係を事前にインストールしてください。
+以下の依存関係を事前にインストール・用意してください。
 
 * Docker
 * [Node.js](https://nodejs.org/en/download) (v18 or later)
 * AWS CLI
 * Administrator 相当の IAM policy
-* [cdk bootstrap](https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/bootstrapping.html) の実行
 
 ### Setup AWS CDK
 
@@ -61,6 +60,13 @@ event-driven-ecs-task-dev.BucketURL = http://event-driven-ecs-task-dev-bucket123
 ```bash
 npx projen destroy
 ```
+
+## File Structure
+
+* /app: Fargate にデプロイされるコンテナで動作するアプリおよび Dockerfile
+* /doc: ドキュメント用フォルダ
+* /src: リソースデプロイ用の CDK Application
+* /test: CDK のテスト用フォル
 
 ## build a docker image
 
