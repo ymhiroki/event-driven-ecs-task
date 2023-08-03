@@ -335,7 +335,7 @@ exports[`Snapshot 1`] = `
     },
     "Rule4C995B7F": {
       "Properties": {
-        "ScheduleExpression": "rate(5 minutes)",
+        "ScheduleExpression": "rate(1 minute)",
         "State": "ENABLED",
         "Targets": [
           {
@@ -395,9 +395,23 @@ exports[`Snapshot 1`] = `
       "Properties": {
         "ContainerDefinitions": [
           {
+            "Environment": [
+              {
+                "Name": "BUCKET_NAME",
+                "Value": {
+                  "Ref": "Bucket83908E77",
+                },
+              },
+              {
+                "Name": "REGION",
+                "Value": {
+                  "Ref": "AWS::Region",
+                },
+              },
+            ],
             "Essential": true,
             "Image": {
-              "Fn::Sub": "\${AWS::AccountId}.dkr.ecr.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-container-assets-\${AWS::AccountId}-\${AWS::Region}:3cfe25eb701f8aba7d095f918110477460e9b69aa8c86f8422f8624a2380cc9d",
+              "Fn::Sub": "\${AWS::AccountId}.dkr.ecr.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-container-assets-\${AWS::AccountId}-\${AWS::Region}:ed8fa27d50ea6fd9b2cf0e1fe93759627608785b079372ff5ca30f2fad114321",
             },
             "LogConfiguration": {
               "LogDriver": "awslogs",
