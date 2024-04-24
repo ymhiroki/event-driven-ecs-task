@@ -105,6 +105,7 @@ exports[`Snapshot 1`] = `
             },
             {
               "Action": [
+                "s3:PutBucketPolicy",
                 "s3:GetBucket*",
                 "s3:List*",
                 "s3:DeleteObject*",
@@ -159,7 +160,7 @@ exports[`Snapshot 1`] = `
           "S3Bucket": {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "a657308e723bb9460b800cb3b47dadb74e28243edfe246bf7755c45ec312eb97.zip",
+          "S3Key": "6c1e9b465fa4b2d651dbc9ce3e732d8702a7b19137327684a71d89f1d355f1a2.zip",
         },
         "Description": {
           "Fn::Join": [
@@ -291,6 +292,7 @@ exports[`Snapshot 1`] = `
             },
             {
               "Action": [
+                "s3:PutBucketPolicy",
                 "s3:GetBucket*",
                 "s3:List*",
                 "s3:DeleteObject*",
@@ -486,6 +488,30 @@ exports[`Snapshot 1`] = `
               "Effect": "Allow",
               "Resource": {
                 "Ref": "TaskDefinitionB36D86D9",
+              },
+            },
+            {
+              "Action": "ecs:TagResource",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":ecs:",
+                    {
+                      "Ref": "AWS::Region",
+                    },
+                    ":*:task/",
+                    {
+                      "Ref": "ClusterEB0386A7",
+                    },
+                    "/*",
+                  ],
+                ],
               },
             },
             {
